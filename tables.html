@@ -23,8 +23,6 @@
             </div>
         </div>
         <div class="card">
-
-            <!-- Current Tables in Use -->
             <div class="card">
                 <div class="card-header">
                     <h4>Current Reservations</h4>
@@ -34,7 +32,6 @@
                 </div>
             </div>
 
-            <!-- Waiting List Card -->
             <div class="card mt-4">
                 <div class="card-header">
                     <h4>Waiting List</h4>
@@ -58,6 +55,12 @@
     </div>
     <script src=" https://code.jquery.com/jquery-3.4.1.min.js"> </script>
     <script src="https://kit.fontawesome.com/d7b6144c64.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $.get("/api/tables", data => {
+            console.log(data)
+        })
+    
+    </script>
 </body>
 
 </html>
