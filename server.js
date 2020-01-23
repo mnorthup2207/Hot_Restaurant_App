@@ -9,8 +9,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Arrays
-var reservations = [];
-var waiting = [];
+var tables = [];
+var waitList = [];
 
 // Front End
 app.get("/", function(req, res) {
@@ -30,14 +30,12 @@ app.get("/reserve", function(req, res) {
 
 // Back End
 app.get("/api/reserve", function(req, res) {
-    console.log("reservations")
-    res.send("Reservations")
-    // return res.json(reservations)
+    console.log("waitList")
+    res.json(waitList);
 });
 app.get("/api/tables", function(req, res) {
     console.log("tables")
-    res.send("tables")
-    // return res.json(reservations)
+    res.json(tables);
 });
 
 
