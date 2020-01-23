@@ -17,12 +17,29 @@
                 <h1 class="display-4"><strong><i class="fas fa-fire"> Super Hot Restaurant</i></strong></h1>
                 <h2 class="lead"><strong>Current Reservation and Wait list</strong></h2>
                 <hr class="my-4">
-                <a class="btn btn-primary btn-lg" href="/reserve" role="button"><i class="fas fa-credit-card"> Make Reservation</i></a>
+                <a class="btn btn-primary btn-lg" href="/reserve" role="button"><i class="fas fa-credit-card"> Make
+                        Reservation</i></a>
                 <a class="btn btn-primary btn-lg" href="/home" role="button"><i class="fas fa-home"> Home</i></a>
             </div>
         </div>
         <div class="card">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Current Reservations</h4>
+                </div>
+                <div class="card-body">
+                    <ul id="tableList" class="list-group"></ul>
+                </div>
+            </div>
 
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h4>Waiting List</h4>
+                </div>
+                <div class="card-body">
+                    <ul id="waitList" class="list-group"></ul>
+                </div>
+            </div>
         </div>
         <div class="row">
             <a id="link" href="#">Clear Table</a>
@@ -35,6 +52,12 @@
     </div>
     <script src=" https://code.jquery.com/jquery-3.4.1.min.js"> </script>
     <script src="https://kit.fontawesome.com/d7b6144c64.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $.get("/api/tables", data => {
+            console.log(data)
+        })
+    
+    </script>
 </body>
 
 </html>
