@@ -43,6 +43,7 @@ app.post("/api/reserve", function(req, res) {
         waitList = reservations.slice(5, reservations.length);
         res.json({wait: true});
     }
+    // New comment line
 });
 app.get("/api/reserve", function(req, res) {
     console.log("waitList")
