@@ -36,7 +36,7 @@ app.get("/api/reserve", function(req, res) {
 });
 app.get("/api/tables", function(req, res) {
     console.log("tables")
-    res.send("tables")
+    res.send("tables.html")
     // return res.json(reservations)
 });
 
