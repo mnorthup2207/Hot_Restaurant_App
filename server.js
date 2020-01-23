@@ -10,8 +10,15 @@ app.use(express.json());
 
 // Arrays
 var reservations = [];
-var waiting = [];
-
+var tables = [
+    {
+        name: "Carl",
+        phoneNumber: "303.333.3333",
+        email: "email@gmail.com",
+        uniqueID: "33"
+    }
+]
+var waitList = [];
 // Front End
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "home.html"));
@@ -36,7 +43,7 @@ app.get("/api/reserve", function(req, res) {
 });
 app.get("/api/tables", function(req, res) {
     console.log("tables")
-    res.send("tables.html")
+    res.send(tables)
     // return res.json(reservations)
 });
 
