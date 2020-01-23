@@ -9,6 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Arrays
+var reservations = [];
 var tables = [];
 var waitList = [];
 
@@ -29,6 +30,20 @@ app.get("/reserve", function(req, res) {
 });
 
 // Back End
+app.post("/api/reserve", function(req, res) {
+    var reservation = req.body;
+    console.log(reservation);
+    reservations.push(reservation);
+    let resLength = reservations.length;
+    if (resLength < 5) {
+        tables = reservations;
+        res.json({table: true});
+    } else {
+        tables = reservations.slice(0, 5);
+        waitList = reservations.slice(5, reservations.length);
+        res.json({wait: true});
+    }
+});
 app.get("/api/reserve", function(req, res) {
     console.log("waitList")
     res.json(waitList);
@@ -39,7 +54,7 @@ app.get("/api/tables", function(req, res) {
 });
 
 
-
+// The port we are listening on
 app.listen(PORT, function(){
     console.log("App listening on PORT " + PORT);
 })
